@@ -6,13 +6,13 @@ export const Hero = () => {
     return (
         <section id="home" className="min-h-screen flex items-center justify-center relative pt-20 overflow-hidden">
             <div className="container mx-auto px-6 relative z-10 w-full max-w-6xl">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div className="flex flex-col-reverse lg:flex-row gap-12 items-center justify-between">
                     {/* Text Content */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="flex flex-col space-y-6"
+                        className="flex flex-col space-y-6 lg:w-1/2"
                     >
                         <div>
                             <motion.span
@@ -64,7 +64,7 @@ export const Hero = () => {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.2, duration: 0.6 }}
-                        className="flex justify-center lg:justify-end"
+                        className="flex justify-center lg:justify-end lg:w-1/2"
                     >
                         <div className="relative flex justify-center items-center">
                             {/* Depth of field blur layer behind */}

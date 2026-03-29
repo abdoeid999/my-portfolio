@@ -7,8 +7,9 @@ const experiences = [
         role: "R&D Software Engineer",
         date: "2024 - Present",
         description: [
-            "Built CBCT 3D imaging prototypes",
-            "Developed embedded systems (ATmega32)",
+            "Spearheaded the development of CBCT 3D imaging prototypes, integrating complex hardware-software pipelines to significantly enhance medical diagnostic precision.",
+            "Engineered and optimized low-level embedded systems utilizing ATmega32 microcontrollers, ensuring robust, real-time operations for critical medical device prototypes.",
+            "Championed multidisciplinary collaboration by translating complex clinical requirements into actionable technical specifications with mechanical and software teams."
         ],
     },
     {
@@ -16,8 +17,9 @@ const experiences = [
         role: "Software QA Tester | Embedded Systems Diploma",
         date: "Previous",
         description: [
-            "Focused on AVR, C, I2C, SPI, UART interfaces",
-            "Conducted Software QA Testing procedures",
+            "Designed and executed rigorous Software QA Testing protocols, proactively identifying edge cases to dramatically improve overarching system reliability.",
+            "Solved complex data synchronization challenges by implementing and debugging low-level communication interfaces (I2C, SPI, UART) in C on AVR architectures.",
+            "Demonstrated technical problem-solving by analyzing system bottlenecks and optimizing logic flow to ensure flawless embedded component interactions."
         ],
     },
     {
@@ -25,7 +27,9 @@ const experiences = [
         role: "Digital Circuits Operations",
         date: "Previous",
         description: [
-            "Assisted with digital circuit operations and maintenance",
+            "Managed the operational continuity of complex digital circuits, executing proactive maintenance and rapid hardware troubleshooting to minimize industrial downtime.",
+            "Analyzed operational schematic designs to diagnose and rectify hardware anomalies, directly contributing to the resilience of high-stakes energy systems.",
+            "Collaborated within cross-functional operational teams to streamline incident response workflows and elevate critical infrastructure stability."
         ],
     },
 ];

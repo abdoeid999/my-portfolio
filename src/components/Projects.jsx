@@ -7,6 +7,22 @@ import sc4 from "../assets/sc4.jpeg";
 import car1_g from "../assets/car1_g.jpeg";
 import ZA from "../assets/ZA.jpeg";
 
+const ProjectImage = ({ src, alt, className, loading }) => {
+    const [isLoaded, setIsLoaded] = useState(false);
+    return (
+        <>
+            {!isLoaded && <div className="absolute inset-0 z-0 bg-white/5 animate-pulse rounded-xl"></div>}
+            <img 
+                src={src} 
+                alt={alt} 
+                loading={loading}
+                onLoad={() => setIsLoaded(true)}
+                style={{ imageRendering: 'auto', transitionProperty: 'opacity, transform', transitionDuration: '700ms' }}
+                className={`${className} ${isLoaded ? 'opacity-100' : 'opacity-0'} relative z-10`}
+            />
+        </>
+    );
+};
 const bentoProjects = [
     {
         id: "p1",
@@ -93,12 +109,11 @@ export const Projects = () => {
                         >
                             {/* Strict Aspect Ratio Image Container */}
                             <div className="relative w-full aspect-video border-b border-[#38BDF8]/20 bg-[#0B1215] flex items-center justify-center p-4 shadow-[inset_0px_0px_20px_rgba(56,189,248,0.1)]">
-                                    <img 
+                                    <ProjectImage 
                                         src={project.image} 
                                         alt={project.title} 
                                         loading={index === 0 ? "eager" : "lazy"}
-                                        style={{ imageRendering: 'auto' }}
-                                        className="max-w-full h-auto object-contain transition-transform duration-700 group-hover:scale-[1.05]"
+                                        className="w-full h-full object-contain group-hover:scale-[1.05]"
                                     />
                                 
                                 <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md p-2 rounded-full text-white opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110 z-10 hidden sm:block">
@@ -175,11 +190,10 @@ export const Projects = () => {
                                 
                                 {/* Image Container Fix */}
                                 <div className="lg:w-1/2 relative min-h-[300px] max-h-[60vh] lg:max-h-full bg-[#0B1215] flex items-center justify-center p-6 border-b lg:border-b-0 lg:border-r border-[#38BDF8]/20 shadow-[inset_0px_0px_30px_rgba(56,189,248,0.1)]">
-                                    <img 
+                                    <ProjectImage 
                                         src={selectedProject.modalImage || selectedProject.image} 
                                         alt={selectedProject.title}
-                                        style={{ imageRendering: 'auto' }}
-                                        className="max-w-full h-auto object-contain max-h-[60vh] drop-shadow-2xl"
+                                        className="w-full h-full lg:h-auto object-contain max-h-[60vh] drop-shadow-2xl"
                                     />
                                 </div>
 
