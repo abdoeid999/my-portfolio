@@ -7,29 +7,29 @@ const experiences = [
         role: "R&D Software Engineer",
         date: "2024 - Present",
         description: [
-            "Spearheaded the development of CBCT 3D imaging prototypes, integrating complex hardware-software pipelines to significantly enhance medical diagnostic precision.",
-            "Engineered and optimized low-level embedded systems utilizing ATmega32 microcontrollers, ensuring robust, real-time operations for critical medical device prototypes.",
-            "Championed multidisciplinary collaboration by translating complex clinical requirements into actionable technical specifications with mechanical and software teams."
+            "Spearheaded development of CBCT 3D imaging prototypes, integrating complex hardware-software pipelines.",
+            "Engineered low-level embedded systems using ATmega32 for real-time medical device operations.",
+            "Translated clinical requirements into technical specifications for mechanical and software teams."
         ],
     },
     {
         company: "ITI Internships",
-        role: "Software QA Tester | Embedded Systems Diploma",
-        date: "Previous",
+        role: "Software QA / Embedded Systems",
+        date: "2023",
         description: [
-            "Designed and executed rigorous Software QA Testing protocols, proactively identifying edge cases to dramatically improve overarching system reliability.",
-            "Solved complex data synchronization challenges by implementing and debugging low-level communication interfaces (I2C, SPI, UART) in C on AVR architectures.",
-            "Demonstrated technical problem-solving by analyzing system bottlenecks and optimizing logic flow to ensure flawless embedded component interactions."
+            "Executed Software QA protocols, identifying edge cases to improve system reliability.",
+            "Implemented and debugged communication interfaces (I2C, SPI, UART) on AVR architectures.",
+            "Optimized logic flow and analyzed system bottlenecks for embedded component interactions."
         ],
     },
     {
         company: "Siemens Energy",
         role: "Digital Circuits Operations",
-        date: "Previous",
+        date: "2022",
         description: [
-            "Managed the operational continuity of complex digital circuits, executing proactive maintenance and rapid hardware troubleshooting to minimize industrial downtime.",
-            "Analyzed operational schematic designs to diagnose and rectify hardware anomalies, directly contributing to the resilience of high-stakes energy systems.",
-            "Collaborated within cross-functional operational teams to streamline incident response workflows and elevate critical infrastructure stability."
+            "Managed operational continuity of complex digital circuits and industrial hardware.",
+            "Analyzed operational schematic designs to diagnose and rectify hardware anomalies.",
+            "Collaborated with cross-functional teams to streamline incident response workflows."
         ],
     },
 ];
@@ -75,13 +75,13 @@ export const Experience = () => {
                                     <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-accent transition-colors">{exp.company}</h3>
                                 </div>
 
-                                <div className="md:col-span-3 text-left bg-card md:bg-transparent rounded-2xl md:rounded-none p-6 md:p-0 border border-white/5 md:border-none shadow-xl md:shadow-none hover:border-accent/30 md:hover:border-transparent transition-all">
-                                    <h4 className="text-lg md:text-xl text-slate-200 font-semibold mb-4">{exp.role}</h4>
-                                    <ul className="space-y-3">
+                                <div className="md:col-span-3 text-left">
+                                    <h4 className="text-lg md:text-xl text-[#38BDF8] font-bold mb-4 tracking-tight uppercase text-xs">{exp.role}</h4>
+                                    <ul className="space-y-4">
                                         {exp.description.map((item, i) => (
-                                            <li key={i} className="text-slate-400 text-sm md:text-base flex items-start gap-3">
-                                                <span className="text-accent mt-2 text-[10px] leading-none">●</span>
-                                                <span className="leading-relaxed">{item}</span>
+                                            <li key={i} className="text-slate-400 text-sm md:text-base flex items-start gap-3 leading-relaxed">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-accent/40 mt-1.5 flex-shrink-0"></span>
+                                                <span>{item}</span>
                                             </li>
                                         ))}
                                     </ul>

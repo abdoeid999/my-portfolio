@@ -19,21 +19,20 @@ export const Hero = () => {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.3, duration: 0.5 }}
-                                className="text-accent font-medium tracking-wide uppercase text-sm"
+                                className="text-accent font-semibold tracking-[0.2em] uppercase text-xs mb-3 block"
                             >
-                                Welcome to my portfolio
+                                Research & Development Engineer
                             </motion.span>
-                            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mt-2 leading-tight">
-                                Hi, I'm <span className="text-accent">Ziad Eid</span>
+                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mt-2 leading-[0.9] tracking-tight">
+                                Ziad <span className="text-accent">Eid</span>
                             </h1>
-                            <h2 className="text-2xl md:text-3xl text-slate-300 font-medium mt-4">
-                                R&D Software Engineer <br className="hidden md:block" />
-                                <span className="text-slate-400">| Embedded Systems & Medical Tech</span>
+                            <h2 className="text-xl md:text-2xl text-slate-300 font-medium mt-8 max-w-xl leading-relaxed">
+                                I build <span className="text-white border-b-2 border-accent/30">embedded systems</span> and <span className="text-white border-b-2 border-accent/30">medical technologies</span> that solve real-world problems.
                             </h2>
                         </div>
 
-                        <p className="text-slate-400 text-lg md:text-xl max-w-lg leading-relaxed">
-                            Highly motivated R&D Engineer bridging embedded hardware and high-level software, specializing in medical device innovation.
+                        <p className="text-slate-400 text-base md:text-lg max-w-lg leading-relaxed font-light">
+                            Bridging the gap between complex hardware and intelligent software to innovate the next generation of healthcare solutions.
                         </p>
 
                         <div className="flex flex-wrap gap-4 pt-4">

@@ -28,10 +28,16 @@ const bentoProjects = [
         id: "p1",
         title: "Bionic & Prosthetic Hand",
         role: "Team Leader & Lead Designer",
-        description: "Spearheaded the design and assembly of a low-cost prosthetic hand controlled by EMG signals. Focused on restoring independence through biomechanical innovation and accessible technology, as presented in the official technical proposal.",
+        summary: "EMG-controlled prosthetic hand designed for low-cost biomechanical restoration.",
+        description: "Spearheaded the design and assembly of a low-cost prosthetic hand controlled by EMG signals. Focused on restoring independence through biomechanical innovation and accessible technology.",
+        achievements: [
+            "Developed responsive myoelectric control algorithms for natural hand mimicking.",
+            "Optimized for 3D printing to reduce manufacturing costs by 70%.",
+            "Presented formal technical proposal for biomechanical innovation."
+        ],
         objectives: "Provide an accessible, lightweight prosthetic solution for amputees. Focus on lowering manufacturing costs using 3D printing while ensuring high responsiveness and natural mimicking of human hand biomechanics.",
-        specs: "Controlled via non-invasive EMG or EEG sensors reading myoelectric signals. Structured with lightweight custom 3D-printed materials for extended wearable comfort, integrated with advanced signal processing algorithms.",
-        tech: ["EMG Sensors", "Myoelectric Control", "3D Printing", "Biomechanics"],
+        specs: "Controlled via non-invasive EMG/EEG sensors. Structured with custom 3D-printed materials for extended wearable comfort, integrated with advanced signal processing.",
+        tech: ["EMG Sensors", "Myoelectric Control", "3D Printing", "C/C++", "Biomechanics"],
         image: ZA,
         modalImage: A1,
         spanClass: "md:col-span-2 lg:col-span-2 md:row-span-2", 
@@ -40,10 +46,16 @@ const bentoProjects = [
     {
         id: "p2",
         title: "Autonomous Mine Detector",
+        summary: "Unmanned ATmega32 vehicle for intelligent landmine detection and clearing.",
         description: "An ATmega32-powered autonomous vehicle equipped with metal detectors and ultrasonic sensors for safe, unmanned landmine clearing.",
+        achievements: [
+            "Implemented real-time obstacle avoidance using ultrasonic array logic.",
+            "Engineered H-Bridge motor driver integration for rugged field mobility.",
+            "Optimized pathfinding algorithms for systematic area coverage."
+        ],
         objectives: "Eliminate human risk in mine-clearing operations by deploying an autonomous sweep vehicle capable of intelligent pathfinding and hidden threat detection.",
-        specs: "Utilizes an ATmega32 microcontroller orchestrating ultrasonic arrays for obstacle avoidance and an H-Bridge motor driver for rugged mobility. Employs localized electromagnetic induction loops for subsurface mine detection.",
-        tech: ["ATmega32", "Ultrasonic Sensors", "H-Bridge", "Obstacle Avoidance Algorithms"],
+        specs: "Utilizes ATmega32 microcontroller, ultrasonic sensor arrays for avoidance, and electromagnetic induction loops for threat detection.",
+        tech: ["ATmega32", "Ultrasonic Sensors", "H-Bridge", "Embedded C"],
         image: sc4,
         spanClass: "md:col-span-1 lg:col-span-1 md:row-span-1", 
         icon: <Crosshair size={24} />,
@@ -52,10 +64,16 @@ const bentoProjects = [
         id: "p3",
         title: "EVER",
         role: "Team Leader & Project Manager",
-        description: "Led a high-performance engineering team to build an electric vehicle prototype. Managed MATLAB mathematical modeling for endurance tests and oversaw the integration of 48V LiFePo4 battery systems, achieving a 0.30 drag coefficient and 0-62 km/h in 4 seconds.",
-        objectives: "Engineer a high-performance, aerodynamically optimized electric racing prototype demonstrating rapid acceleration, sustained battery efficiency, and reliable track performance.",
-        specs: "Powered by a highly stable 48V LiFePo4 energy storage system feeding dual high-torque hub motors. Features a lightweight aerodynamic fiberglass body meticulously sculpted via MATLAB aerodynamic modeling.",
-        tech: ["MATLAB Modeling", "LiFePo4 Battery Tech", "Aerodynamic Fiberglass Body"],
+        summary: "Electric vehicle prototype achieving 0-62 km/h in 4s with 0.30 drag coefficient.",
+        description: "Led a high-performance engineering team to build an electric vehicle prototype. Managed MATLAB mathematical modeling for endurance tests and oversaw LiFePo4 battery integration.",
+        achievements: [
+            "Achieved aerodynamic optimization reaching a 0.30 drag coefficient.",
+            "Managed full system integration of 48V LiFePo4 energy storage.",
+            "Led multidisciplinary team through prototype design and testing phases."
+        ],
+        objectives: "Engineer a high-performance, aerodynamically optimized electric racing prototype demonstrating rapid acceleration and sustained battery efficiency.",
+        specs: "Powered by 48V LiFePo4 system with dual high-torque hub motors. Features lightweight fiberglass body sculpted via MATLAB aerodynamic modeling.",
+        tech: ["MATLAB", "LiFePo4 Battery", "Aerodynamics", "Project Management"],
         image: car1_g,
         spanClass: "md:col-span-1 lg:col-span-1 md:row-span-1", 
         icon: <Wrench size={24} />,
@@ -138,16 +156,19 @@ export const Projects = () => {
                                         )}
                                     </div>
                                 </div>
-                                <p className="text-sm md:text-base text-slate-300 line-clamp-3 leading-relaxed mb-6 flex-1 mt-1">
-                                    {project.description}
+                                <p className="text-sm md:text-base text-slate-300 line-clamp-2 leading-relaxed mb-6 font-medium">
+                                    {project.summary}
                                 </p>
                                 
-                                <div className="flex flex-wrap gap-2 mt-auto">
-                                    {project.tech.map((tech, i) => (
-                                        <span key={i} className="text-xs font-semibold tracking-wide text-[#38BDF8] bg-[#38BDF8]/10 border border-[#38BDF8]/20 px-3 py-1.5 rounded-lg">
+                                <div className="flex flex-wrap gap-1.5 mt-auto">
+                                    {project.tech.slice(0, 3).map((tech, i) => (
+                                        <span key={i} className="text-[10px] font-bold tracking-tight text-[#38BDF8] bg-[#38BDF8]/10 border border-[#38BDF8]/20 px-2 py-0.5 rounded-md uppercase">
                                             {tech}
                                         </span>
                                     ))}
+                                    {project.tech.length > 3 && (
+                                        <span className="text-[10px] font-bold text-slate-500 px-1 py-0.5">+{project.tech.length - 3}</span>
+                                    )}
                                 </div>
                             </div>
                         </motion.div>
@@ -198,43 +219,56 @@ export const Projects = () => {
                                 </div>
 
                                 {/* Text & Data Container */}
-                                <div className="lg:w-1/2 p-8 md:p-12 flex flex-col justify-start relative z-10 overflow-y-auto bg-[#171F24] max-h-[60vh] lg:max-h-[90vh]">
-                                    <div className="mb-8 mt-4 lg:mt-0">
-                                        <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-4">
+                                <div className="lg:w-1/2 p-8 md:p-12 flex flex-col justify-start relative z-10 overflow-y-auto bg-[#171F24] max-h-[70vh] lg:max-h-[90vh]">
+                                    <div className="mb-10">
+                                        <h3 className="text-3xl md:text-4xl font-black text-white leading-tight mb-4 tracking-tight">
                                             {selectedProject.title}
                                         </h3>
                                         {selectedProject.role && (
-                                            <span className="inline-block px-3 py-1.5 rounded-lg bg-[#38BDF8]/10 border border-[#38BDF8]/30 text-[#38BDF8] text-xs font-bold tracking-widest uppercase shadow-sm">
+                                            <span className="inline-block px-3 py-1 rounded-md bg-[#38BDF8]/10 border border-[#38BDF8]/30 text-[#38BDF8] text-[10px] font-bold tracking-[0.2em] uppercase">
                                                 {selectedProject.role}
                                             </span>
                                         )}
                                     </div>
                                     
-                                    <div className="space-y-8 mb-10">
+                                    <div className="space-y-10 mb-12">
                                         <div>
-                                            <h4 className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#38BDF8] mb-3">
-                                                <Crosshair size={16} /> Objectives
+                                            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#38BDF8] mb-4 flex items-center gap-2">
+                                                <span className="w-8 h-px bg-accent/30"></span> Overview
                                             </h4>
-                                            <p className="text-slate-300 text-base leading-relaxed font-light">
-                                                {selectedProject.objectives}
+                                            <p className="text-slate-300 text-lg leading-relaxed font-light italic">
+                                                "{selectedProject.summary}"
                                             </p>
+                                        </div>
+
+                                        <div>
+                                            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#38BDF8] mb-4 flex items-center gap-2">
+                                                <span className="w-8 h-px bg-accent/30"></span> Key Achievements
+                                            </h4>
+                                            <ul className="space-y-4">
+                                                {selectedProject.achievements?.map((ach, i) => (
+                                                    <li key={i} className="text-slate-300 text-sm md:text-base flex items-start gap-4 leading-relaxed group/item">
+                                                        <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0 shadow-[0_0_8px_#38BDF8] group-hover/item:scale-125 transition-transform"></span>
+                                                        {ach}
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </div>
                                         
                                         <div>
-                                            <h4 className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#38BDF8] mb-3">
-                                                <Wrench size={16} /> Technical Specs
+                                            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#38BDF8] mb-4 flex items-center gap-2">
+                                                <span className="w-8 h-px bg-accent/30"></span> Technical Specs
                                             </h4>
-                                            <p className="text-slate-300 text-base leading-relaxed font-light">
+                                            <p className="text-slate-400 text-sm leading-relaxed border-l border-white/10 pl-6 py-1">
                                                 {selectedProject.specs}
                                             </p>
                                         </div>
                                     </div>
                                     
-                                    <div className="mt-auto">
-                                        <h4 className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-4 pb-2 border-b border-white/10">Key Tech Stack</h4>
-                                        <div className="flex flex-wrap gap-3">
+                                    <div className="mt-auto pt-8 border-t border-white/5">
+                                        <div className="flex flex-wrap gap-2">
                                             {selectedProject.tech.map((tech, i) => (
-                                                <span key={i} className="text-sm font-medium text-[#38BDF8] bg-[#38BDF8]/10 border border-[#38BDF8]/20 px-4 py-2 rounded-xl shadow-sm">
+                                                <span key={i} className="text-[10px] font-bold text-[#38BDF8] bg-[#38BDF8]/5 border border-[#38BDF8]/10 px-3 py-1.5 rounded-md uppercase tracking-wider">
                                                     {tech}
                                                 </span>
                                             ))}
