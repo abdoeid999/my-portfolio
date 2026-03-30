@@ -188,12 +188,12 @@ export const Projects = () => {
                                     <X size={24} className="group-hover:rotate-90 transition-transform duration-300" />
                                 </button>
                                 
-                                {/* Image Container Fix */}
-                                <div className="lg:w-1/2 relative min-h-[300px] max-h-[60vh] lg:max-h-full bg-[#0B1215] flex items-center justify-center p-6 border-b lg:border-b-0 lg:border-r border-[#38BDF8]/20 shadow-[inset_0px_0px_30px_rgba(56,189,248,0.1)]">
+                                {/* Responsive Image Wrapper */}
+                                <div className="w-full lg:w-1/2 bg-[#0B1215] flex items-center justify-center p-4 border-b lg:border-b-0 lg:border-r border-[#38BDF8]/20 shadow-[inset_0px_0px_30px_rgba(56,189,248,0.1)]">
                                     <ProjectImage 
                                         src={selectedProject.modalImage || selectedProject.image} 
                                         alt={selectedProject.title}
-                                        className="w-full h-full lg:h-auto object-contain max-h-[60vh] drop-shadow-2xl"
+                                        className="w-full h-auto max-w-full object-contain drop-shadow-2xl"
                                     />
                                 </div>
 
